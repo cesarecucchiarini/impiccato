@@ -12,3 +12,18 @@ C:\Users\sergi\OneDrive\Desktop\progettiC#\impiccato\impiccato\impiccato\obj\Deb
 C:\Users\sergi\OneDrive\Desktop\progettiC#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.pdb
 C:\Users\sergi\OneDrive\Desktop\progettiC#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.genruntimeconfig.cache
 C:\Users\sergi\OneDrive\Desktop\progettiC#\impiccato\impiccato\impiccato\obj\Debug\net8.0\ref\impiccato.dll
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\bin\Debug\net8.0\impiccato.exe
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\bin\Debug\net8.0\impiccato.deps.json
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\bin\Debug\net8.0\impiccato.runtimeconfig.json
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\bin\Debug\net8.0\impiccato.dll
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\bin\Debug\net8.0\impiccato.pdb
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.AssemblyInfoInputs.cache
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.AssemblyInfo.cs
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.csproj.CoreCompileInputs.cache
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.sourcelink.json
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.dll
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\refint\impiccato.dll
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.pdb
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.genruntimeconfig.cache
+C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\ref\impiccato.dll

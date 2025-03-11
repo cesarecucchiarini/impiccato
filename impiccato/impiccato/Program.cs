@@ -15,28 +15,31 @@ string[,] ritornaParole()
     return parole;
 }
 
-string[] scegliParola(string[,] parole)
+string[] scegliParola(string[,] parole, bool[,] paroleUsate)
 {
     int arg=tema(parole);
     Random rnd = new Random();
     string[] a = new string[2];
+    int arg2 = rnd.Next(parole.GetLength(1));
     if (arg == -1)
-    {       
+    { 
+        //FINIRE I CONTROLLI
         arg = rnd.Next(10);
         a[0] = parole[arg, 0];
-        a[1]= parole[arg, rnd.Next(1, parole.GetLength(1))];
+        a[1]= parole[arg, rnd.Next(1, arg2)];
     }
     else
     {
         a[0] = parole[arg, 0];
-        a[1] = parole[arg, rnd.Next(1, parole.GetLength(1))];
+        a[1] = parole[arg, rnd.Next(1,arg2)];
     }
+    paroleUsate[arg, arg2] = true;
     return a;
 }
 
 char decisione()
 {
-    Console.WriteLine("Vuoi un indizio (i), una lettera jolly (j) o inserire una lettera (c)?");
+    Console.WriteLine("Vuoi un indizio (i), una lettera jolly (j), inserire una lettera (c), inserire la parola finale (f) o uscire (e)?");
     char s = Console.ReadLine().ToLower()[0];
     if (s == 'i')
     {
@@ -48,13 +51,23 @@ char decisione()
         Console.WriteLine("Hai scelto jolly");
         return '2';
     }
+    else if (s == 'e')
+    {
+        Console.WriteLine("Hai scelto di uscire");
+        return '4';
+    }
+    else if (s == 'f')
+    {
+        Console.WriteLine("Hai scelto di inserire la parola");
+        return '5';
+    }
     Console.WriteLine("Hai scelto inserimento");
     return '3';
 }
 
 void indizio(string[] scelta, char[] parola, ref int monete)
 {
-    Console.WriteLine("Vuoi sapere la prima lettera per 10 monete (p), l'ultima lettera  per 5 (u) oppure il tema per 15 (t)?");
+    Console.WriteLine($"Hai {monete} monete\nVuoi sapere la prima lettera per 10 monete (p), l'ultima lettera  per 5 (u) oppure il tema per 15 (t)?");
     char s = Console.ReadLine().ToLower()[0];
     if(s == 'p')
     {
@@ -115,10 +128,11 @@ char inserimento(ref string provate)
     return s;
 }
 
-void aggiunta(char s, char[] parola, string[] scelta, ref int tentativi)
+void aggiunta(char s, char[] parola, string[] scelta, ref int tentativi, ref int punti)
 {
     if (scelta[1].Contains(s))
     {
+        punti += 5;
         for(int i = 0; i < parola.Length; i++)
         {
             if (s == scelta[1][i])
@@ -150,6 +164,15 @@ int tema(string[,]parole)
         t = -1;
     return t;
 }
+
+bool inserimentoIntero(string[] scelta)
+{
+    Console.WriteLine("Dammi la parola completa");
+    string p = Console.ReadLine().ToLower();
+    if (p == scelta[1])
+        return true;
+    return false;
+}
 //MAIN
 
 Console.WriteLine("Gioca all'impiccato, devi indovinare una parola segreta cercando di indovinarne i caratteri." +
@@ -159,67 +182,90 @@ Console.WriteLine("Gioca all'impiccato, devi indovinare una parola segreta cerca
 Console.WriteLine("Scegli la modalità:\nfacile, 10 tentativi e 50 monete(f)\nmedia, 5 tentativi e 20 monete (m)\n" +
     "difficile, 3 tentativi e 10 monete (d)?");
 string mod=Console.ReadLine();
-int tentativi = 0, monete=0;
+int tentativi = 0, monete=0, punti=0;
 string provate = "";
-bool j=true;
-switch (mod)
-{
-    case "f":
-        tentativi = 10;
-        monete = 50;
-        break;
-    case "m":
-        tentativi = 5;
-        monete = 20;
-        break;
-    default:
-        tentativi = 3;
-        monete = 10;
-        break;
-}
-
-
-//PAROLA DA INDOVINARE
-string[] scelta = scegliParola(ritornaParole());
-char[] parola = new char[scelta[1].Length];
+bool j;
+bool gioco = true;
+string[] scelta = new string[2];
 string parolaFinale;
-for (int i = 0; i < parola.Length; i++)
+bool[,] paroleUsate = new bool[10, 51];
+while (gioco)
 {
-    parola[i] = '_';
-}
-
-
-//GIOCO
-while (tentativi > 0 && parola.Contains('_'))
-{
-    parolaFinale = string.Concat(parola);
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine($"Parola: {parolaFinale}\nLettere usate: {provate}\nMonete rimaste: {monete}\nTentativi rimasti: {tentativi}\n");
-    Console.ForegroundColor= ConsoleColor.White;
-    //AZIONE
-    char c = decisione();
-    switch (c)
+    j = true;
+    switch (mod)
     {
-        //INDIZIO
-        case '1':
-            indizio(scelta, parola, ref monete);
+        case "f":
+            tentativi += 10;
+            monete += 50;
             break;
-
-        //JOLLY
-        case '2':
-            jolly(parola, scelta, ref j);
+        case "m":
+            tentativi += 5;
+            monete
+                =+ 20;
             break;
-
-        //PROVA
         default:
-            c = inserimento(ref provate);
-            aggiunta(c, parola, scelta, ref tentativi);
+            tentativi += 3;
+            monete += 10;
             break;
     }
+    //PAROLA DA INDOVINARE
+    scelta = scegliParola(ritornaParole());
+    char[] parola = new char[scelta[1].Length];
+    for (int i = 0; i < parola.Length; i++)
+    {
+        parola[i] = '_';
+    }
+
+
+    //GIOCO
+    while (tentativi > 0 && parola.Contains('_'))
+    {
+        parolaFinale = string.Concat(parola);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"Parola: {parolaFinale} ({parolaFinale.Length})\nLettere usate: {provate}\nMonete rimaste: {monete}\nTentativi rimasti: {tentativi}\n");
+        Console.ForegroundColor = ConsoleColor.White;
+        //AZIONE
+        char c = decisione();
+        switch (c)
+        {
+            //INDIZIO
+            case '1':
+                indizio(scelta, parola, ref monete);
+                break;
+
+            //JOLLY
+            case '2':
+                jolly(parola, scelta, ref j);
+                break;
+
+            //PROVA
+            case '3':
+                c = inserimento(ref provate);
+                aggiunta(c, parola, scelta, ref tentativi, ref punti);
+                break;
+            case '4':
+                tentativi = 0;
+                gioco = false;
+                break;
+            case '5':
+                if (inserimentoIntero(scelta))
+                {
+                    Console.WriteLine("Parola corretta");
+                    parolaFinale = "";
+                    punti += 20;
+                }
+                else
+                {
+                    tentativi = 0;
+                    Console.WriteLine("Hai sbagliato");
+                }
+                break;
+        }
+    }
+    if (tentativi == 0)
+    {
+        gioco = false;
+        Console.WriteLine("Hai perso");
+    }
 }
-if (tentativi > 0)
-{
-    Console.WriteLine("HAI VINTOOO!!!");
-}
-else
-    Console.WriteLine("Hai perso, la parola era" + scelta[1]);
+    Console.WriteLine($"Gioco finito, hai totalizzato {punti} punti");

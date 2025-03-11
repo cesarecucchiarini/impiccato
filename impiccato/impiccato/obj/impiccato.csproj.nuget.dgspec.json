@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sergi\\OneDrive\\Desktop\\progettiC#\\impiccato\\impiccato\\impiccato\\impiccato.csproj": {}
+    "C:\\Users\\cucchiarini.cesare\\Desktop\\progetti C#\\impiccato\\impiccato\\impiccato\\impiccato.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sergi\\OneDrive\\Desktop\\progettiC#\\impiccato\\impiccato\\impiccato\\impiccato.csproj": {
+    "C:\\Users\\cucchiarini.cesare\\Desktop\\progetti C#\\impiccato\\impiccato\\impiccato\\impiccato.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sergi\\OneDrive\\Desktop\\progettiC#\\impiccato\\impiccato\\impiccato\\impiccato.csproj",
+        "projectUniqueName": "C:\\Users\\cucchiarini.cesare\\Desktop\\progetti C#\\impiccato\\impiccato\\impiccato\\impiccato.csproj",
         "projectName": "impiccato",
-        "projectPath": "C:\\Users\\sergi\\OneDrive\\Desktop\\progettiC#\\impiccato\\impiccato\\impiccato\\impiccato.csproj",
-        "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sergi\\OneDrive\\Desktop\\progettiC#\\impiccato\\impiccato\\impiccato\\obj\\",
+        "projectPath": "C:\\Users\\cucchiarini.cesare\\Desktop\\progetti C#\\impiccato\\impiccato\\impiccato\\impiccato.csproj",
+        "packagesPath": "C:\\Users\\cucchiarini.cesare\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cucchiarini.cesare\\Desktop\\progetti C#\\impiccato\\impiccato\\impiccato\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\cucchiarini.cesare\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -64,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23455.8/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
