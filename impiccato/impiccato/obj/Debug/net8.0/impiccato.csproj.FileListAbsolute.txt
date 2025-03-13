@@ -27,3 +27,4 @@ C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\ob
 C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.pdb
 C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.genruntimeconfig.cache
 C:\Users\cucchiarini.cesare\Desktop\progetti C#\impiccato\impiccato\impiccato\obj\Debug\net8.0\ref\impiccato.dll
+C:\Users\sergi\OneDrive\Desktop\progettiC#\impiccato\impiccato\impiccato\obj\Debug\net8.0\impiccato.sourcelink.json
