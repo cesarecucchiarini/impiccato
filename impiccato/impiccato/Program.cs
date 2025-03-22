@@ -15,25 +15,46 @@ string[,] ritornaParole()
     return parole;
 }
 
-string[] scegliParola(string[,] parole, bool[,] paroleUsate)
+string[] scegliParola(string[,] parole)
 {
-    int arg=tema(parole);
     Random rnd = new Random();
+    int t = tema(parole);
+    int arg=0;
     string[] a = new string[2];
-    int arg2 = rnd.Next(parole.GetLength(1));
+    int arg2 = 0;
+    bool x = true;
+    while (x)
+    {
+        for (int i = 1; i < parole.GetLength(1); i++)
+        {
+            if (parole[arg, i] != "")
+            {
+                x = false;
+            }
+        }
+        if (x)
+        {
+            Console.WriteLine("Hai finito le parole del tema, scegline un altro");
+            t = tema(parole);
+            arg = t > -1 ? t : rnd.Next(10);
+        }
+    }
+    while(arg2==0 || parole[arg, arg2] == "")
+    {
+        arg2 = rnd.Next(1, parole.GetLength(1));
+    }
     if (arg == -1)
     { 
-        //FINIRE I CONTROLLI
         arg = rnd.Next(10);
         a[0] = parole[arg, 0];
-        a[1]= parole[arg, rnd.Next(1, arg2)];
+        a[1]= parole[arg,arg2];
     }
     else
     {
         a[0] = parole[arg, 0];
-        a[1] = parole[arg, rnd.Next(1,arg2)];
+        a[1] = parole[arg,arg2];
     }
-    paroleUsate[arg, arg2] = true;
+    parole[arg, arg2] = "";
     return a;
 }
 
@@ -177,18 +198,17 @@ bool inserimentoIntero(string[] scelta)
 
 Console.WriteLine("Gioca all'impiccato, devi indovinare una parola segreta cercando di indovinarne i caratteri." +
     "Hai a disposizione dei tentativi, i quali indicano gli errori che puoi commettere, e le monete che ti servono a comprare indizi." +
-    "Infine una volta per partita puoi usare un jolly che ti permetterà di trovare un carattere casuale della parola.\n\n");
+    "Infine una volta per parola puoi usare un jolly che ti permetterà di trovare un carattere casuale della parola.\n\n");
 //SCELTA MODALITA
 Console.WriteLine("Scegli la modalità:\nfacile, 10 tentativi e 50 monete(f)\nmedia, 5 tentativi e 20 monete (m)\n" +
     "difficile, 3 tentativi e 10 monete (d)?");
 string mod=Console.ReadLine();
 int tentativi = 0, monete=0, punti=0;
-string provate = "";
+string provate = "", paroleTrovate="";
 bool j;
 bool gioco = true;
 string[] scelta = new string[2];
 string parolaFinale;
-bool[,] paroleUsate = new bool[10, 51];
 while (gioco)
 {
     j = true;
@@ -262,10 +282,20 @@ while (gioco)
                 break;
         }
     }
-    if (tentativi == 0)
+    if (tentativi == 0&& gioco)
     {
         gioco = false;
         Console.WriteLine("Hai perso");
     }
+    else if (tentativi == 0)
+    {
+        Console.WriteLine("Gioco terminato");
+    }
+    else
+    {
+        Console.WriteLine("Hai indovinato!!");
+        paroleTrovate +=scelta[1]+" ";
+    }
 }
-    Console.WriteLine($"Gioco finito, hai totalizzato {punti} punti");
+    Console.WriteLine($"Gioco finito, hai totalizzato {punti} punti\n" +
+        $"Le parole trovate sono: {paroleTrovate}"); 
